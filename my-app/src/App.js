@@ -5,12 +5,11 @@ import Textform from "./Textform";
 import { useState } from "react";
 import Alert from "./Alert";
 
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
   const [mode, changeMode] = useState("dark");
@@ -37,25 +36,30 @@ function App() {
 
   return (
     <>
-      <Navbar
+    <Router>
+    <Navbar
       title="Netflix"
     aboutText="Help?"
       main="Home"
+      about="About"
         search="🔍"
          mode={mode}
          modeText={mode1}
+         textColor={textColor}
         toggle={toggleMode}>
       </Navbar>
 
       <Alert alert="Success" mode={mode} />
-<div className="container my-3 ">
-  
-     <Textform textcolor={textColor}></Textform> 
-  
-</div>
+ <div className="container my-3 ">
+ 
+<Routes>
+  <Route exact path="/about" element={<About />} />
+  <Route exact path="/" element={<Textform heading="Enter the text to analyze" textColor={textColor}/>} />
+</Routes>
 
-    // {/* </Router> */}
-    </>
+  </div>
+  </Router>
+  </>
   );
 }
 

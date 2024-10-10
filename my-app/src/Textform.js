@@ -35,7 +35,7 @@ export default function Textform(props) {
   return (
     <>
     <div className="container">
-      <h1>{props.heading}</h1>
+      <h1 style={{color : props.textColor === 'white'?'black':'white'}}>{props.heading}</h1>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">
         </label>
@@ -45,7 +45,7 @@ export default function Textform(props) {
           rows="8"
           value={text}
           onChange={handleOnchange}
-          style={{color:props.textcolor === 'white'?'black':'white' , backgroundColor :props.textcolor}}
+          style={{color:props.textColor === 'black' , backgroundColor :props.textcolor}}
         ></textarea>
       </div>
       <button type="button" className="btn btn-primary mx-3" onClick={handleButton}>Convert to UPPERCASE</button>
@@ -54,10 +54,10 @@ export default function Textform(props) {
       <button type="button" className="btn btn-light" onClick={handleCopy}>Copy To Clipboard</button>
     </div>
          <div className="container my-4">
-             <h1 style={{color : props.textcolor === 'white'?'black':'white'}}>Your Text Summary</h1>
-             <p style={{color :props.textcolor ==='white'?'black':'white'}}>{text.split(" ").length} Words , {text.length} Characters</p>
-            <p style={{color : props.textcolor === 'white'?'black':'white'}}>It will take about {((text.split(" ").length * 1) / 60).toFixed(3)} minutes to read this.</p>
-            <h3 style={{color :props.textcolor === 'white'?'black':'white'}}>Preview</h3>
+             <h1 style={{color : props.textColor === 'white'?'black':'white'}}>Your Text Summary</h1>
+             <p style={{color :props.textColor ==='white'?'black':'white'}}>{text.split(" ").length} Words , {text.length} Characters</p>
+            <p style={{color : props.textColor === 'white'?'black':'white'}}>It will take about {((text.split(" ").length * 1) / 60).toFixed(3)} minutes to read this.</p>
+            <h3 style={{color :props.textColor === 'white'?'black':'white'}}>Preview</h3>
             <p style={{color : props.textcolor === 'white'?'black':'white'}}>{text.length>0?text : 'Enter something'}</p>
          </div>
     </>
